@@ -131,5 +131,24 @@ namespace OxyPlot
         {
             return this.x + " " + this.y;
         }
+
+        public bool Equals(ScreenVector other)
+        {
+            return x.Equals(other.x) && y.Equals(other.y);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is ScreenVector && Equals((ScreenVector) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (x.GetHashCode()*397) ^ y.GetHashCode();
+            }
+        }
     }
 }

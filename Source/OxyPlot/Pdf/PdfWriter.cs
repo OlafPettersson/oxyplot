@@ -159,7 +159,11 @@ namespace OxyPlot
         /// </summary>
         public void Dispose()
         {
+#if NET35 || DOT42
+            this.w.Close();
+#else
             this.w.Dispose();
+#endif
         }
 
         /// <summary>

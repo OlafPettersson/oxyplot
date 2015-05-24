@@ -7,6 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+
 namespace OxyPlot.Axes
 {
     using System;
@@ -14,6 +15,13 @@ namespace OxyPlot.Axes
     using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Linq;
+
+#if DOT42
+    public enum CalendarWeekRule
+    {
+        FirstFourDayWeek
+    }
+#endif
 
     /// <summary>
     /// Represents an axis presenting <see cref="System.DateTime" /> values.
@@ -174,12 +182,12 @@ namespace OxyPlot.Axes
         public override object GetValue(double x)
         {
             var time = ToDateTime(x);
-
+#if !DOT42
             if (this.TimeZone != null)
             {
                 time = TimeZoneInfo.ConvertTime(time, this.TimeZone);
             }
-
+#endif
             return time;
         }
 
@@ -267,13 +275,13 @@ namespace OxyPlot.Axes
         {
             // convert the double value to a DateTime
             var time = ToDateTime(x);
-
+#if !DOT42
             // If a time zone is specified, convert the time
             if (this.TimeZone != null)
             {
                 time = TimeZoneInfo.ConvertTime(time, this.TimeZone);
             }
-
+#endif
             string fmt = this.ActualStringFormat;
             if (fmt == null)
             {
@@ -523,7 +531,11 @@ namespace OxyPlot.Axes
         /// <returns>The week number for the current culture.</returns>
         private int GetWeek(DateTime date)
         {
+#if !DOT42
             return this.ActualCulture.Calendar.GetWeekOfYear(date, this.CalendarWeekRule, this.FirstDayOfWeek);
+#else
+            return 0;
+#endif
         }
     }
 }

@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace OxyPlot
 {
     /// <summary>
@@ -88,23 +90,26 @@ namespace OxyPlot
             // int outcode0 = this.ComputeOutCode(p0.x, p0.y);           
             int outcode0 = Inside; // initialized as being inside of clip window
 
-            if (p0.x < this.xmin)
+            double p0x = p0.X, p0y = p0.Y;
+            double p1x = p1.X, p1y = p1.Y;
+
+            if (p0x < this.xmin)
             {
                 // to the left of clip window
                 outcode0 |= Left;
             }
-            else if (p0.x > this.xmax)
+            else if (p0x > this.xmax)
             {
                 // to the right of clip window
                 outcode0 |= Right;
             }
 
-            if (p0.y < this.ymin)
+            if (p0y < this.ymin)
             {
                 // below the clip window
                 outcode0 |= Bottom;
             }
-            else if (p0.y > this.ymax)
+            else if (p0y > this.ymax)
             {
                 // above the clip window
                 outcode0 |= Top;
@@ -114,27 +119,40 @@ namespace OxyPlot
             // int outcode1 = this.ComputeOutCode(p1.x, p1.y);
             int outcode1 = Inside; // initialized as being inside of clip window
 
-            if (p1.x < this.xmin)
+            if (p1x < this.xmin)
             {
                 // to the left of clip window
                 outcode1 |= Left;
             }
-            else if (p1.x > this.xmax)
+            else if (p1x > this.xmax)
             {
                 // to the right of clip window
                 outcode1 |= Right;
             }
 
-            if (p1.y < this.ymin)
+            if (p1y < this.ymin)
             {
                 // below the clip window
                 outcode1 |= Bottom;
             }
-            else if (p1.y > this.ymax)
+            else if (p1y > this.ymax)
             {
                 // above the clip window
                 outcode1 |= Top;
             }
+
+            if ((outcode0 | outcode1) == 0)
+            {
+                // logical or is 0. Trivially accept and get out of loop
+                return true;
+            }
+
+            if ((outcode0 & outcode1) != 0)
+            {
+                // logical and is not 0. Trivially reject and get out of loop
+                return false;
+            }
+
 
             bool accept = false;
 
@@ -162,28 +180,31 @@ namespace OxyPlot
 
                 // Now find the intersection point;
                 // use formulas y = y0 + slope * (x - x0), x = x0 + (1 / slope) * (y - y0)
+
+                double dx = p1x - p0x, dy = p1y - p0y;
+
                 if ((outcodeOut & Top) != 0)
                 {
                     // point is above the clip rectangle
-                    x = p0.x + ((p1.x - p0.x) * (this.ymax - p0.y) / (p1.y - p0.y));
+                    x = p0x + (dx * (this.ymax - p0y) / dy);
                     y = this.ymax;
                 }
                 else if ((outcodeOut & Bottom) != 0)
                 {
                     // point is below the clip rectangle
-                    x = p0.x + ((p1.x - p0.x) * (this.ymin - p0.y) / (p1.y - p0.y));
+                    x = p0x + (dx * (this.ymin - p0y) / dy);
                     y = this.ymin;
                 }
                 else if ((outcodeOut & Right) != 0)
                 {
                     // point is to the right of clip rectangle
-                    y = p0.y + ((p1.y - p0.y) * (this.xmax - p0.x) / (p1.x - p0.x));
+                    y = p0y + (dy * (this.xmax - p0x) / dx);
                     x = this.xmax;
                 }
                 else if ((outcodeOut & Left) != 0)
                 {
                     // point is to the left of clip rectangle
-                    y = p0.y + ((p1.y - p0.y) * (this.xmin - p0.x) / (p1.x - p0.x));
+                    y = p0y + (dy * (this.xmin - p0x) / dx);
                     x = this.xmin;
                 }
 
@@ -191,30 +212,30 @@ namespace OxyPlot
                 // and get ready for next pass.
                 if (outcodeOut == outcode0)
                 {
-                    p0.x = x;
-                    p0.y = y;
+                    p0x = x;
+                    p0y = y;
 
                     // the following code is inlined
                     // outcode0 = this.ComputeOutCode(p0.x, p0.y);
                     outcode0 = Inside; // initialized as being inside of clip window
 
-                    if (p0.x < this.xmin)
+                    if (p0x < this.xmin)
                     {
                         // to the left of clip window
                         outcode0 |= Left;
                     }
-                    else if (p0.x > this.xmax)
+                    else if (p0x > this.xmax)
                     {
                         // to the right of clip window
                         outcode0 |= Right;
                     }
 
-                    if (p0.y < this.ymin)
+                    if (p0y < this.ymin)
                     {
                         // below the clip window
                         outcode0 |= Bottom;
                     }
-                    else if (p0.y > this.ymax)
+                    else if (p0y > this.ymax)
                     {
                         // above the clip window
                         outcode0 |= Top;
@@ -222,30 +243,30 @@ namespace OxyPlot
                 }
                 else
                 {
-                    p1.x = x;
-                    p1.y = y;
+                    p1x = x;
+                    p1y = y;
 
                     // the following method is inlined manually
                     // outcode1 = this.ComputeOutCode(p1.x, p1.y);
                     outcode1 = Inside; // initialized as being inside of clip window
 
-                    if (p1.x < this.xmin)
+                    if (p1x < this.xmin)
                     {
                         // to the left of clip window
                         outcode1 |= Left;
                     }
-                    else if (p1.x > this.xmax)
+                    else if (p1x > this.xmax)
                     {
                         // to the right of clip window
                         outcode1 |= Right;
                     }
 
-                    if (p1.y < this.ymin)
+                    if (p1y < this.ymin)
                     {
                         // below the clip window
                         outcode1 |= Bottom;
                     }
-                    else if (p1.y > this.ymax)
+                    else if (p1y > this.ymax)
                     {
                         // above the clip window
                         outcode1 |= Top;
@@ -253,6 +274,8 @@ namespace OxyPlot
                 }
             }
 
+            p0 = new ScreenPoint(p0x, p0y);
+            p1 = new ScreenPoint(p1x, p1y);
             return accept;
         }
 

@@ -1,0 +1,907 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7A9C969A-7258-4BD6-B3FE-76D110FFCA90}</ProjectGuid>
+    <ProjectTypeGuids>{337B7DB7-2D1E-448D-BEBF-17E887A46E37};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OxyPlot.Dot42</RootNamespace>
+    <AssemblyName>OxyPlot.Dot42</AssemblyName>
+    <TargetFrameworkIdentifier>Android</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+    <AndroidVersion>$(TargetFrameworkVersion)</AndroidVersion>
+    <SupportedCultures>
+    </SupportedCultures>
+    <ApkOutputs>false</ApkOutputs>
+    <GenerateAndroidManifest>false</GenerateAndroidManifest>
+    <ApkFilename>.apk</ApkFilename>
+    <PackageName>
+    </PackageName>
+    <Dot42ExtensionsPath Condition=" '$(Dot42ExtensionsPath)' == '' ">$(Registry:HKEY_CURRENT_USER\SOFTWARE\dot42\Android@ExtensionsPath)</Dot42ExtensionsPath>
+    <Dot42ExtensionsPath Condition=" '$(Dot42ExtensionsPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\dot42\Android@ExtensionsPath)</Dot42ExtensionsPath>
+    <ApkCertificatePath>
+    </ApkCertificatePath>
+    <ApkCertificateThumbprint>
+    </ApkCertificateThumbprint>
+    <TargetSdkAndroidVersion />
+    <GenerateWcfProxy>false</GenerateWcfProxy>
+    <GenerateSetNextInstructionCode>false</GenerateSetNextInstructionCode>
+    <EnableCompilerCache>false</EnableCompilerCache>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DOT42</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;DOT42</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dot42" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\OxyPlot\Annotations\Annotation.cs">
+      <Link>Dot42\Annotations\Annotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\AnnotationLayer.cs">
+      <Link>Dot42\Annotations\AnnotationLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\AnnotationTextOrientation.cs">
+      <Link>Dot42\Annotations\AnnotationTextOrientation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\ArrowAnnotation.cs">
+      <Link>Dot42\Annotations\ArrowAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\EllipseAnnotation.cs">
+      <Link>Dot42\Annotations\EllipseAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\FunctionAnnotation.cs">
+      <Link>Dot42\Annotations\FunctionAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\FunctionAnnotationType.cs">
+      <Link>Dot42\Annotations\FunctionAnnotationType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\ImageAnnotation.cs">
+      <Link>Dot42\Annotations\ImageAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\LineAnnotation.cs">
+      <Link>Dot42\Annotations\LineAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\LineAnnotationType.cs">
+      <Link>Dot42\Annotations\LineAnnotationType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\NamespaceDoc.cs">
+      <Link>Dot42\Annotations\NamespaceDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\PathAnnotation.cs">
+      <Link>Dot42\Annotations\PathAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\PointAnnotation.cs">
+      <Link>Dot42\Annotations\PointAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\PolygonAnnotation.cs">
+      <Link>Dot42\Annotations\PolygonAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\PolyLineAnnotation.cs">
+      <Link>Dot42\Annotations\PolyLineAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\RectangleAnnotation.cs">
+      <Link>Dot42\Annotations\RectangleAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\ShapeAnnotation.cs">
+      <Link>Dot42\Annotations\ShapeAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\TextAnnotation.cs">
+      <Link>Dot42\Annotations\TextAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\TextualAnnotation.cs">
+      <Link>Dot42\Annotations\TextualAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Annotations\TileMapAnnotation.cs">
+      <Link>Dot42\Annotations\TileMapAnnotation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\AngleAxis.cs">
+      <Link>Dot42\Axes\AngleAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\Axis.cs">
+      <Link>Dot42\Axes\Axis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\AxisChangedEventArgs.cs">
+      <Link>Dot42\Axes\AxisChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\AxisChangeTypes.cs">
+      <Link>Dot42\Axes\AxisChangeTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\AxisLayer.cs">
+      <Link>Dot42\Axes\AxisLayer.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\AxisPosition.cs">
+      <Link>Dot42\Axes\AxisPosition.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\CategoryAxis.cs">
+      <Link>Dot42\Axes\CategoryAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\CategoryColorAxis.cs">
+      <Link>Dot42\Axes\CategoryColorAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\ColorAxisExtensions.cs">
+      <Link>Dot42\Axes\ColorAxisExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\DateTimeAxis.cs">
+      <Link>Dot42\Axes\DateTimeAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\DateTimeIntervalType.cs">
+      <Link>Dot42\Axes\DateTimeIntervalType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\IColorAxis.cs">
+      <Link>Dot42\Axes\IColorAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\LinearAxis.cs">
+      <Link>Dot42\Axes\LinearAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\LinearColorAxis.cs">
+      <Link>Dot42\Axes\LinearColorAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\LogarithmicAxis.cs">
+      <Link>Dot42\Axes\LogarithmicAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\MagnitudeAxis.cs">
+      <Link>Dot42\Axes\MagnitudeAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\NamespaceDoc.cs">
+      <Link>Dot42\Axes\NamespaceDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\RangeColorAxis.cs">
+      <Link>Dot42\Axes\RangeColorAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\Rendering\AngleAxisRenderer.cs">
+      <Link>Dot42\Axes\Rendering\AngleAxisRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\Rendering\AxisRendererBase.cs">
+      <Link>Dot42\Axes\Rendering\AxisRendererBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\Rendering\HorizontalAndVerticalAxisRenderer.cs">
+      <Link>Dot42\Axes\Rendering\HorizontalAndVerticalAxisRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\Rendering\MagnitudeAxisRenderer.cs">
+      <Link>Dot42\Axes\Rendering\MagnitudeAxisRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\TickStyle.cs">
+      <Link>Dot42\Axes\TickStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Axes\TimeSpanAxis.cs">
+      <Link>Dot42\Axes\TimeSpanAxis.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\CodeGenerator\CodeGenerationAttribute.cs">
+      <Link>Dot42\Foundation\CodeGenerator\CodeGenerationAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\CodeGenerator\CodeGenerator.cs">
+      <Link>Dot42\Foundation\CodeGenerator\CodeGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\CodeGenerator\CodeGeneratorStringExtensions.cs">
+      <Link>Dot42\Foundation\CodeGenerator\CodeGeneratorStringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\CodeGenerator\ICodeGenerating.cs">
+      <Link>Dot42\Foundation\CodeGenerator\ICodeGenerating.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\DataPoint.cs">
+      <Link>Dot42\Foundation\DataPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\IDataPointProvider.cs">
+      <Link>Dot42\Foundation\IDataPointProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\MarkerType.cs">
+      <Link>Dot42\Foundation\MarkerType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\PlotLength.cs">
+      <Link>Dot42\Foundation\PlotLength.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Foundation\PlotLengthUnit.cs">
+      <Link>Dot42\Foundation\PlotLengthUnit.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\ControllerBase.cs">
+      <Link>Dot42\Graphics\ControllerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\ControllerExtensions.cs">
+      <Link>Dot42\Graphics\ControllerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\CursorType.cs">
+      <Link>Dot42\Graphics\CursorType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\DelegateViewCommand{T}.cs">
+      <Link>Dot42\Graphics\DelegateViewCommand{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\Element.cs">
+      <Link>Dot42\Graphics\Element.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\ElementCollection{T}.cs">
+      <Link>Dot42\Graphics\ElementCollection{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\HitTestArguments.cs">
+      <Link>Dot42\Graphics\HitTestArguments.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\HitTestResult.cs">
+      <Link>Dot42\Graphics\HitTestResult.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\IController.cs">
+      <Link>Dot42\Graphics\IController.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\InputCommandBinding.cs">
+      <Link>Dot42\Graphics\InputCommandBinding.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\IView.cs">
+      <Link>Dot42\Graphics\IView.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\IViewCommand.cs">
+      <Link>Dot42\Graphics\IViewCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\IViewCommand{T}.cs">
+      <Link>Dot42\Graphics\IViewCommand{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\ManipulatorBase.cs">
+      <Link>Dot42\Graphics\ManipulatorBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\Model.cs">
+      <Link>Dot42\Graphics\Model.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\Model.MouseEvents.cs">
+      <Link>Dot42\Graphics\Model.MouseEvents.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\SelectableElement.cs">
+      <Link>Dot42\Graphics\SelectableElement.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\Selection.cs">
+      <Link>Dot42\Graphics\Selection.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\SelectionMode.cs">
+      <Link>Dot42\Graphics\SelectionMode.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Graphics\UIElement.cs">
+      <Link>Dot42\Graphics\UIElement.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Bmp\BmpDecoder.cs">
+      <Link>Dot42\Imaging\Bmp\BmpDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Bmp\BmpEncoder.cs">
+      <Link>Dot42\Imaging\Bmp\BmpEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Bmp\BmpEncoderOptions.cs">
+      <Link>Dot42\Imaging\Bmp\BmpEncoderOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\Arrays.cs">
+      <Link>Dot42\Imaging\Deflate\Arrays.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\BitReader.cs">
+      <Link>Dot42\Imaging\Deflate\BitReader.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\ByteBitReader.cs">
+      <Link>Dot42\Imaging\Deflate\ByteBitReader.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\CanonicalCode.cs">
+      <Link>Dot42\Imaging\Deflate\CanonicalCode.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\CircularDictionary.cs">
+      <Link>Dot42\Imaging\Deflate\CircularDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\CodeTree.cs">
+      <Link>Dot42\Imaging\Deflate\CodeTree.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\Deflate.cs">
+      <Link>Dot42\Imaging\Deflate\Deflate.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\InternalNode.cs">
+      <Link>Dot42\Imaging\Deflate\InternalNode.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\Leaf.cs">
+      <Link>Dot42\Imaging\Deflate\Leaf.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Deflate\Node.cs">
+      <Link>Dot42\Imaging\Deflate\Node.cs</Link>
+    </Compile>
+    <Compile Include="Dot42\CanvasRenderContext.cs" />
+    <Compile Include="Dot42\ExtensionMethods.cs" />
+    <Compile Include="Dot42\PlotView.cs" />
+    <None Include="..\OxyPlot\Imaging\Jpeg\JpegDecoder.cs">
+      <Link>Dot42\Imaging\Jpeg\JpegDecoder.cs</Link>
+    </None>
+    <Compile Include="..\OxyPlot\Imaging\IImageDecoder.cs">
+      <Link>Dot42\Imaging\IImageDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\IImageEncoder.cs">
+      <Link>Dot42\Imaging\IImageEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\ImageEncoderOptions.cs">
+      <Link>Dot42\Imaging\ImageEncoderOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\ImageFormat.cs">
+      <Link>Dot42\Imaging\ImageFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\OxyImage.cs">
+      <Link>Dot42\Imaging\OxyImage.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\OxyImageInfo.cs">
+      <Link>Dot42\Imaging\OxyImageInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Png\PngDecoder.cs">
+      <Link>Dot42\Imaging\Png\PngDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Png\PngEncoder.cs">
+      <Link>Dot42\Imaging\Png\PngEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Imaging\Png\PngEncoderOptions.cs">
+      <Link>Dot42\Imaging\Png\PngEncoderOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyInputGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyInputGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyKeyGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyKeyGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyMouseDownGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyMouseDownGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyMouseEnterGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyMouseEnterGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyMouseWheelGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyMouseWheelGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyShakeGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyShakeGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\Gestures\OxyTouchGesture.cs">
+      <Link>Dot42\Input\Gestures\OxyTouchGesture.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\OxyKey.cs">
+      <Link>Dot42\Input\OxyKey.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\OxyModifierKeys.cs">
+      <Link>Dot42\Input\OxyModifierKeys.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Input\OxyMouseButton.cs">
+      <Link>Dot42\Input\OxyMouseButton.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\LibraryDoc.cs">
+      <Link>OxyPlot\LibraryDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\NamespaceDoc.cs">
+      <Link>OxyPlot\NamespaceDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\FontSubType.cs">
+      <Link>Dot42\Pdf\FontSubType.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PdfExporter.cs">
+      <Link>Dot42\Pdf\PdfExporter.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PdfRenderContext.cs">
+      <Link>Dot42\Pdf\PdfRenderContext.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PdfWriter.cs">
+      <Link>Dot42\Pdf\PdfWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocument.cs">
+      <Link>Dot42\Pdf\PortableDocument.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocumentExtensions.cs">
+      <Link>Dot42\Pdf\PortableDocumentExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocumentFont.cs">
+      <Link>Dot42\Pdf\PortableDocumentFont.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocumentFontFamily.cs">
+      <Link>Dot42\Pdf\PortableDocumentFontFamily.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocumentImage.cs">
+      <Link>Dot42\Pdf\PortableDocumentImage.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\PortableDocumentImageUtilities.cs">
+      <Link>Dot42\Pdf\PortableDocumentImageUtilities.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Pdf\StandardFonts.cs">
+      <Link>Dot42\Pdf\StandardFonts.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\DelegatePlotCommand.cs">
+      <Link>Dot42\PlotController\DelegatePlotCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyInputEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyInputEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyKeyEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyKeyEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyMouseDownEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyMouseDownEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyMouseEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyMouseEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyMouseWheelEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyMouseWheelEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\EventArgs\OxyTouchEventArgs.cs">
+      <Link>Dot42\PlotController\EventArgs\OxyTouchEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\IPlotController.cs">
+      <Link>Dot42\PlotController\IPlotController.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\MouseManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\MouseManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\PanManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\PanManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\PlotManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\PlotManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\TouchManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\TouchManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\TrackerHitResult.cs">
+      <Link>Dot42\PlotController\Manipulators\TrackerHitResult.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\TrackerManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\TrackerManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\ZoomRectangleManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\ZoomRectangleManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\Manipulators\ZoomStepManipulator.cs">
+      <Link>Dot42\PlotController\Manipulators\ZoomStepManipulator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\PlotCommands.cs">
+      <Link>Dot42\PlotController\PlotCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotController\PlotController.cs">
+      <Link>Dot42\PlotController\PlotController.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\IPlotElement.cs">
+      <Link>Dot42\PlotModel\IPlotElement.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\IPlotModel.cs">
+      <Link>Dot42\PlotModel\IPlotModel.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\PlotElement.cs">
+      <Link>Dot42\PlotModel\PlotElement.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\PlotModel.cs">
+      <Link>Dot42\PlotModel\PlotModel.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\PlotModel.Legends.cs">
+      <Link>Dot42\PlotModel\PlotModel.Legends.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\PlotModel.Rendering.cs">
+      <Link>Dot42\PlotModel\PlotModel.Rendering.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotModel\TrackerEventArgs.cs">
+      <Link>Dot42\PlotModel\TrackerEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\PlotView\IPlotView.cs">
+      <Link>Dot42\PlotView\IPlotView.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\FontWeights.cs">
+      <Link>Dot42\Rendering\FontWeights.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\HorizontalAlignment.cs">
+      <Link>Dot42\Rendering\HorizontalAlignment.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\LineJoin.cs">
+      <Link>Dot42\Rendering\LineJoin.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\LineStyle.cs">
+      <Link>Dot42\Rendering\LineStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\LineStyleHelper.cs">
+      <Link>Dot42\Rendering\LineStyleHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyColor.cs">
+      <Link>Dot42\Rendering\OxyColor.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyColorExtensions.cs">
+      <Link>Dot42\Rendering\OxyColorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyColors.cs">
+      <Link>Dot42\Rendering\OxyColors.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyPalette.cs">
+      <Link>Dot42\Rendering\OxyPalette.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyPalettes.cs">
+      <Link>Dot42\Rendering\OxyPalettes.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyPen.cs">
+      <Link>Dot42\Rendering\OxyPen.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyRect.cs">
+      <Link>Dot42\Rendering\OxyRect.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxySize.cs">
+      <Link>Dot42\Rendering\OxySize.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxySizeExtensions.cs">
+      <Link>Dot42\Rendering\OxySizeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\OxyThickness.cs">
+      <Link>Dot42\Rendering\OxyThickness.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\RenderContext\IRenderContext.cs">
+      <Link>Dot42\Rendering\RenderContext\IRenderContext.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\RenderContext\MathRenderingExtensions.cs">
+      <Link>Dot42\Rendering\RenderContext\MathRenderingExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\RenderContext\RenderContextBase.cs">
+      <Link>Dot42\Rendering\RenderContext\RenderContextBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\RenderContext\RenderingExtensions.cs">
+      <Link>Dot42\Rendering\RenderContext\RenderingExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\RenderContext\XkcdRenderingDecorator.cs">
+      <Link>Dot42\Rendering\RenderContext\XkcdRenderingDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\ScreenPoint.cs">
+      <Link>Dot42\Rendering\ScreenPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\ScreenPointHelper.cs">
+      <Link>Dot42\Rendering\ScreenPointHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\ScreenVector.cs">
+      <Link>Dot42\Rendering\ScreenVector.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\Utilities\CanonicalSplineHelper.cs">
+      <Link>Dot42\Rendering\Utilities\CanonicalSplineHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\Utilities\CohenSutherlandClipping.cs">
+      <Link>Dot42\Rendering\Utilities\CohenSutherlandClipping.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\Utilities\Decimator.cs">
+      <Link>Dot42\Rendering\Utilities\Decimator.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\Utilities\SutherlandHodgmanClipping.cs">
+      <Link>Dot42\Rendering\Utilities\SutherlandHodgmanClipping.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Rendering\VerticalAlignment.cs">
+      <Link>Dot42\Rendering\VerticalAlignment.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\NamespaceDoc.cs">
+      <Link>Dot42\Reporting\NamespaceDoc.cs</Link>
+    </Compile>
+    <None Include="..\OxyPlot\Reporting\ReportWriters\HtmlReportWriter.cs">
+      <Link>Dot42\Reporting\ReportWriters\HtmlReportWriter.cs</Link>
+    </None>
+    <Compile Include="..\OxyPlot\Reporting\ReportWriters\IReportWriter.cs">
+      <Link>Dot42\Reporting\ReportWriters\IReportWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\ReportWriters\StringExtensions.cs">
+      <Link>Dot42\Reporting\ReportWriters\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\ReportWriters\TextReportWriter.cs">
+      <Link>Dot42\Reporting\ReportWriters\TextReportWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\ReportWriters\WikiReportWriter.cs">
+      <Link>Dot42\Reporting\ReportWriters\WikiReportWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Alignment.cs">
+      <Link>Dot42\Reporting\Report\Alignment.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\DrawingFigure.cs">
+      <Link>Dot42\Reporting\Report\DrawingFigure.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Equation.cs">
+      <Link>Dot42\Reporting\Report\Equation.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Figure.cs">
+      <Link>Dot42\Reporting\Report\Figure.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Header.cs">
+      <Link>Dot42\Reporting\Report\Header.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\HeaderHelper.cs">
+      <Link>Dot42\Reporting\Report\HeaderHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Image.cs">
+      <Link>Dot42\Reporting\Report\Image.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ItemsTable.cs">
+      <Link>Dot42\Reporting\Report\ItemsTable.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ItemsTableField.cs">
+      <Link>Dot42\Reporting\Report\ItemsTableField.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Paragraph.cs">
+      <Link>Dot42\Reporting\Report\Paragraph.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ParagraphStyle.cs">
+      <Link>Dot42\Reporting\Report\ParagraphStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\PlotFigure.cs">
+      <Link>Dot42\Reporting\Report\PlotFigure.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\PropertyTable.cs">
+      <Link>Dot42\Reporting\Report\PropertyTable.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Report.cs">
+      <Link>Dot42\Reporting\Report\Report.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ReportItem.cs">
+      <Link>Dot42\Reporting\Report\ReportItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ReportSection.cs">
+      <Link>Dot42\Reporting\Report\ReportSection.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\ReportStyle.cs">
+      <Link>Dot42\Reporting\Report\ReportStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\Table.cs">
+      <Link>Dot42\Reporting\Report\Table.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\TableCell.cs">
+      <Link>Dot42\Reporting\Report\TableCell.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\TableColumn.cs">
+      <Link>Dot42\Reporting\Report\TableColumn.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\TableOfContents.cs">
+      <Link>Dot42\Reporting\Report\TableOfContents.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Reporting\Report\TableRow.cs">
+      <Link>Dot42\Reporting\Report\TableRow.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\AreaSeries.cs">
+      <Link>Dot42\Series\AreaSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\BarItem.cs">
+      <Link>Dot42\Series\BarSeries\BarItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\BarItemBase.cs">
+      <Link>Dot42\Series\BarSeries\BarItemBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\BarSeries.cs">
+      <Link>Dot42\Series\BarSeries\BarSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\BarSeriesBase.cs">
+      <Link>Dot42\Series\BarSeries\BarSeriesBase.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\BarSeriesBase{T}.cs">
+      <Link>Dot42\Series\BarSeries\BarSeriesBase{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\CategorizedItem.cs">
+      <Link>Dot42\Series\BarSeries\CategorizedItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\CategorizedSeries.cs">
+      <Link>Dot42\Series\BarSeries\CategorizedSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\ColumnItem.cs">
+      <Link>Dot42\Series\BarSeries\ColumnItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\ColumnSeries.cs">
+      <Link>Dot42\Series\BarSeries\ColumnSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\ErrorColumnItem.cs">
+      <Link>Dot42\Series\BarSeries\ErrorColumnItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\ErrorColumnSeries.cs">
+      <Link>Dot42\Series\BarSeries\ErrorColumnSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\IntervalBarItem.cs">
+      <Link>Dot42\Series\BarSeries\IntervalBarItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\IntervalBarSeries.cs">
+      <Link>Dot42\Series\BarSeries\IntervalBarSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\IStackableSeries.cs">
+      <Link>Dot42\Series\BarSeries\IStackableSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\LabelPlacement.cs">
+      <Link>Dot42\Series\BarSeries\LabelPlacement.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\RectangleBarItem.cs">
+      <Link>Dot42\Series\BarSeries\RectangleBarItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\RectangleBarSeries.cs">
+      <Link>Dot42\Series\BarSeries\RectangleBarSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\TornadoBarItem.cs">
+      <Link>Dot42\Series\BarSeries\TornadoBarItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BarSeries\TornadoBarSeries.cs">
+      <Link>Dot42\Series\BarSeries\TornadoBarSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BoxPlotItem.cs">
+      <Link>Dot42\Series\BoxPlotItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\BoxPlotSeries.cs">
+      <Link>Dot42\Series\BoxPlotSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ContourSeries.cs">
+      <Link>Dot42\Series\ContourSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\DataPointSeries.cs">
+      <Link>Dot42\Series\DataPointSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\CandleStickAndVolumeSeries.cs">
+      <Link>Dot42\Series\FinancialSeries\CandleStickAndVolumeSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\CandleStickSeries.cs">
+      <Link>Dot42\Series\FinancialSeries\CandleStickSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\HighLowItem.cs">
+      <Link>Dot42\Series\FinancialSeries\HighLowItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\HighLowSeries.cs">
+      <Link>Dot42\Series\FinancialSeries\HighLowSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\OhlcvItem.cs">
+      <Link>Dot42\Series\FinancialSeries\OhlcvItem.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\OldCandleStickSeries.cs">
+      <Link>Dot42\Series\FinancialSeries\OldCandleStickSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\VolumeSeries.cs">
+      <Link>Dot42\Series\FinancialSeries\VolumeSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FinancialSeries\VolumeStyle.cs">
+      <Link>Dot42\Series\FinancialSeries\VolumeStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\FunctionSeries.cs">
+      <Link>Dot42\Series\FunctionSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\HeatMapSeries.cs">
+      <Link>Dot42\Series\HeatMapSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\IScatterPointProvider.cs">
+      <Link>Dot42\Series\IScatterPointProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ItemsSeries.cs">
+      <Link>Dot42\Series\ItemsSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\LineLegendPosition.cs">
+      <Link>Dot42\Series\LineLegendPosition.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\LineSeries.cs">
+      <Link>Dot42\Series\LineSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\NamespaceDoc.cs">
+      <Link>Dot42\Series\NamespaceDoc.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\PieSeries.cs">
+      <Link>Dot42\Series\PieSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\PieSlice.cs">
+      <Link>Dot42\Series\PieSlice.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ScatterErrorPoint.cs">
+      <Link>Dot42\Series\ScatterErrorPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ScatterErrorSeries.cs">
+      <Link>Dot42\Series\ScatterErrorSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ScatterPoint.cs">
+      <Link>Dot42\Series\ScatterPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ScatterSeries.cs">
+      <Link>Dot42\Series\ScatterSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\ScatterSeries{T}.cs">
+      <Link>Dot42\Series\ScatterSeries{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\Series.cs">
+      <Link>Dot42\Series\Series.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\StairStepSeries.cs">
+      <Link>Dot42\Series\StairStepSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\StemSeries.cs">
+      <Link>Dot42\Series\StemSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\TwoColorAreaSeries.cs">
+      <Link>Dot42\Series\TwoColorAreaSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\TwoColorLineSeries.cs">
+      <Link>Dot42\Series\TwoColorLineSeries.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Series\XYAxisSeries.cs">
+      <Link>Dot42\Series\XYAxisSeries.cs</Link>
+    </Compile>
+    <None Include="..\OxyPlot\Svg\SvgExporter.cs">
+      <Link>Dot42\Svg\SvgExporter.cs</Link>
+    </None>
+    <None Include="..\OxyPlot\Svg\SvgRenderContext.cs">
+      <Link>Dot42\Svg\SvgRenderContext.cs</Link>
+    </None>
+    <None Include="..\OxyPlot\Svg\SvgWriter.cs">
+      <Link>Dot42\Svg\SvgWriter.cs</Link>
+    </None>
+    <Compile Include="..\OxyPlot\Utilities\ArrayBuilder.cs">
+      <Link>Dot42\Utilities\ArrayBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\ArrayExtensions.cs">
+      <Link>Dot42\Utilities\ArrayExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\BinaryReaderExtensions.cs">
+      <Link>Dot42\Utilities\BinaryReaderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\Conrec.cs">
+      <Link>Dot42\Utilities\Conrec.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\EnumerableExtensions.cs">
+      <Link>Dot42\Utilities\EnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\FractionHelper.cs">
+      <Link>Dot42\Utilities\FractionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\HashCodeBuilder.cs">
+      <Link>Dot42\Utilities\HashCodeBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\ListFiller.cs">
+      <Link>Dot42\Utilities\ListFiller.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\ReflectionExtensions.cs">
+      <Link>Dot42\Utilities\ReflectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\ReflectionPath.cs">
+      <Link>Dot42\Utilities\ReflectionPath.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\StreamExtensions.cs">
+      <Link>Dot42\Utilities\StreamExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\OxyPlot\Utilities\StringHelper.cs">
+      <Link>Dot42\Utilities\StringHelper.cs</Link>
+    </Compile>
+    <None Include="..\OxyPlot\Utilities\XmlWriterBase.cs">
+      <Link>Dot42\Utilities\XmlWriterBase.cs</Link>
+    </None>
+    <None Include="..\OxyPlot\ClassDiagrams\Axes.cd">
+      <Link>Dot42\ClassDiagrams\Axes.cd</Link>
+    </None>
+    <None Include="..\OxyPlot\ClassDiagrams\PlotModel.cd">
+      <Link>Dot42\ClassDiagrams\PlotModel.cd</Link>
+    </None>
+    <None Include="..\OxyPlot\ClassDiagrams\Reporting.cd">
+      <Link>Dot42\ClassDiagrams\Reporting.cd</Link>
+    </None>
+    <None Include="..\OxyPlot\ClassDiagrams\Series.cd">
+      <Link>Dot42\ClassDiagrams\Series.cd</Link>
+    </None>
+    <None Include="..\OxyPlot\Imaging\Deflate\Readme.md">
+      <Link>Dot42\Imaging\Deflate\Readme.md</Link>
+    </None>
+    <None Include="..\OxyPlot\OxyPlot.snk">
+      <Link>OxyPlot.snk</Link>
+    </None>
+    <AndroidResource Include="Dot42\Main.axml">
+      <DependentUpon>CanvasRenderContext.cs</DependentUpon>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\OxyPlot\Pdf\ReadMe.txt">
+      <Link>Dot42\Pdf\ReadMe.txt</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(Dot42ExtensionsPath)\Dot42.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

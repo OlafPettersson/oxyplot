@@ -266,5 +266,28 @@ namespace OxyPlot
             builder.Append(")");
             return builder.ToString();
         }
+
+        public bool Equals(OxyRect other)
+        {
+            return height.Equals(other.height) && left.Equals(other.left) && top.Equals(other.top) && width.Equals(other.width);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is OxyRect && Equals((OxyRect) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = height.GetHashCode();
+                hashCode = (hashCode*397) ^ left.GetHashCode();
+                hashCode = (hashCode*397) ^ top.GetHashCode();
+                hashCode = (hashCode*397) ^ width.GetHashCode();
+                return hashCode;
+            }
+        }
     }
 }

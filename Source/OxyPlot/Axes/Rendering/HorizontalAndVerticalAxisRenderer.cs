@@ -628,7 +628,15 @@ namespace OxyPlot.Axes
             // If axisAngle was < 0, we need to shift the previous computation on 180.
             if (axisAngle < 0)
             {
+#if !DOT42
                 ha = (HorizontalAlignment)((int)ha * -1);
+#else           
+                // Dot42 has difficulties with enum calculations.
+                if(ha == HorizontalAlignment.Left)
+                    ha = HorizontalAlignment.Right;
+                else if (ha == HorizontalAlignment.Right)
+                    ha = HorizontalAlignment.Left;
+#endif
             }
 
             va = VerticalAlignment.Middle;

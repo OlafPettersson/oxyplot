@@ -75,5 +75,24 @@ namespace OxyPlot
             builder.Append(")");
             return builder.ToString();
         }
+
+        public bool Equals(OxySize other)
+        {
+            return Height.Equals(other.Height) && Width.Equals(other.Width);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is OxySize && Equals((OxySize) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Height.GetHashCode()*397) ^ Width.GetHashCode();
+            }
+        }
     }
 }

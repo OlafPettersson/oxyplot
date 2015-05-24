@@ -174,5 +174,28 @@ namespace OxyPlot
             return string.Format(
                 CultureInfo.InvariantCulture, "({0}, {1}, {2}, {3})", this.left, this.top, this.right, this.bottom);
         }
+
+        public bool Equals(OxyThickness other)
+        {
+            return bottom.Equals(other.bottom) && left.Equals(other.left) && right.Equals(other.right) && top.Equals(other.top);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is OxyThickness && Equals((OxyThickness) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = bottom.GetHashCode();
+                hashCode = (hashCode*397) ^ left.GetHashCode();
+                hashCode = (hashCode*397) ^ right.GetHashCode();
+                hashCode = (hashCode*397) ^ top.GetHashCode();
+                return hashCode;
+            }
+        }
     }
 }

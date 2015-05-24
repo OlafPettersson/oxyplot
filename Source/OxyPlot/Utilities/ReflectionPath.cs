@@ -54,8 +54,13 @@ namespace OxyPlot
                 }
 
                 var pi = this.infos[i];
+#if !DOT42
                 var currentType = current.GetType();
                 if (pi == null || pi.ReflectedType != currentType)
+#else
+                var currentType = current.GetType();
+                if (pi == null)
+#endif
                 {
                     pi = this.infos[i] = currentType.GetProperty(this.items[i]);
                 }

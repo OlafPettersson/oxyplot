@@ -443,7 +443,11 @@ namespace OxyPlot
             {
                 if (disposing)
                 {
+#if !DOT42
                     this.output.Dispose();
+#else
+                    this.output.Close();
+#endif
                     this.outputStream.Dispose();
                 }
             }

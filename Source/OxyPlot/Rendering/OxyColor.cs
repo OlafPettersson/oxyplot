@@ -17,29 +17,42 @@ namespace OxyPlot
     /// </summary>
     public struct OxyColor : ICodeGenerating
     {
+        private readonly byte a;
+        private readonly byte b;
+        private readonly byte g;
+        private readonly byte r;
+
         /// <summary>
         /// Gets the alpha value.
         /// </summary>
         /// <value>The alpha value.</value>
-        public byte A { get; private set; }
+        public byte A { get { return a; } }
 
         /// <summary>
         /// Gets the blue value.
         /// </summary>
         /// <value>The blue value.</value>
-        public byte B { get; private set; }
+        public byte B { get { return b; } }
 
         /// <summary>
         /// Gets the green value.
         /// </summary>
         /// <value>The green value.</value>
-        public byte G { get; private set; }
+        public byte G { get { return g; } }
 
         /// <summary>
         /// Gets the red value.
         /// </summary>
         /// <value>The red value.</value>
-        public byte R { get; private set; }
+        public byte R { get { return r; } }
+
+        private OxyColor(byte a, byte r, byte g, byte b)
+        {
+            this.a = a;
+            this.r = r;
+            this.g = g;
+            this.b = b;
+        }
 
         /// <summary>
         /// Parse a string.
@@ -235,7 +248,7 @@ namespace OxyPlot
         /// <returns>A color.</returns>
         public static OxyColor FromAColor(byte a, OxyColor color)
         {
-            return FromArgb(a, color.R, color.G, color.B);
+            return FromArgb(a, color.r, color.g, color.b);
         }
 
         /// <summary>
@@ -248,7 +261,7 @@ namespace OxyPlot
         /// <returns>A color.</returns>
         public static OxyColor FromArgb(byte a, byte r, byte g, byte b)
         {
-            return new OxyColor { A = a, R = r, G = g, B = b };
+            return new OxyColor(a, r, g, b);
         }
 
         /// <summary>
@@ -261,7 +274,7 @@ namespace OxyPlot
         public static OxyColor FromRgb(byte r, byte g, byte b)
         {
             // ReSharper restore InconsistentNaming
-            return new OxyColor { A = 255, R = r, G = g, B = b };
+            return new OxyColor(255, r, g, b);
         }
 
         /// <summary>
@@ -273,10 +286,10 @@ namespace OxyPlot
         /// <returns>The interpolated color</returns>
         public static OxyColor Interpolate(OxyColor color1, OxyColor color2, double t)
         {
-            double a = (color1.A * (1 - t)) + (color2.A * t);
-            double r = (color1.R * (1 - t)) + (color2.R * t);
-            double g = (color1.G * (1 - t)) + (color2.G * t);
-            double b = (color1.B * (1 - t)) + (color2.B * t);
+            double a = (color1.a * (1 - t)) + (color2.a * t);
+            double r = (color1.r * (1 - t)) + (color2.r * t);
+            double g = (color1.g * (1 - t)) + (color2.g * t);
+            double b = (color1.b * (1 - t)) + (color2.b * t);
             return FromArgb((byte)a, (byte)r, (byte)g, (byte)b);
         }
 
@@ -329,7 +342,7 @@ namespace OxyPlot
         /// <returns><c>true</c> if the specified <see cref="OxyColor" /> is equal to this instance; otherwise, <c>false</c> .</returns>
         public bool Equals(OxyColor other)
         {
-            return other.A == this.A && other.R == this.R && other.G == this.G && other.B == this.B;
+            return other.a == this.a && other.r == this.r && other.g == this.g && other.b == this.b;
         }
 
         /// <summary>
@@ -340,10 +353,10 @@ namespace OxyPlot
         {
             unchecked
             {
-                int result = this.A.GetHashCode();
-                result = (result * 397) ^ this.R.GetHashCode();
-                result = (result * 397) ^ this.G.GetHashCode();
-                result = (result * 397) ^ this.B.GetHashCode();
+                int result = this.a.GetHashCode();
+                result = (result * 397) ^ this.r.GetHashCode();
+                result = (result * 397) ^ this.g.GetHashCode();
+                result = (result * 397) ^ this.b.GetHashCode();
                 return result;
             }
         }
@@ -355,7 +368,7 @@ namespace OxyPlot
         public override string ToString()
         {
             return string.Format(
-                CultureInfo.InvariantCulture, "#{0:x2}{1:x2}{2:x2}{3:x2}", this.A, this.R, this.G, this.B);
+                CultureInfo.InvariantCulture, "#{0:x2}{1:x2}{2:x2}{3:x2}", this.a, this.r, this.g, this.b);
         }
 
         /// <summary>
@@ -364,7 +377,7 @@ namespace OxyPlot
         /// <returns><c>True</c> if the alpha value is 0.</returns>
         public bool IsInvisible()
         {
-            return this.A == 0;
+            return this.a == 0;
         }
 
         /// <summary>
@@ -373,7 +386,7 @@ namespace OxyPlot
         /// <returns><c>True</c> if the alpha value is greater than 0.</returns>
         public bool IsVisible()
         {
-            return this.A > 0;
+            return this.a > 0;
         }
 
         /// <summary>

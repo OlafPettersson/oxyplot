@@ -94,8 +94,13 @@ namespace OxyPlot.Axes
                 var angle = Math.Atan2(pt.y - magnitudeAxis.MidPoint.y, pt.x - magnitudeAxis.MidPoint.x);
 
                 // add some margin
+#if !DOT42
                 pt.x += Math.Cos(angle) * axis.AxisTickToLabelDistance;
                 pt.y += Math.Sin(angle) * axis.AxisTickToLabelDistance;
+#else
+                pt = new ScreenPoint(Math.Cos(angle) * axis.AxisTickToLabelDistance,
+                                     Math.Sin(angle) * axis.AxisTickToLabelDistance);
+#endif
 
                 // Convert to degrees
                 angle *= 180 / Math.PI;

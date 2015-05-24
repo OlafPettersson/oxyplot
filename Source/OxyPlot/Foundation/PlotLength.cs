@@ -58,5 +58,24 @@ namespace OxyPlot
                 return this.unit;
             }
         }
+
+        public bool Equals(PlotLength other)
+        {
+            return unit == other.unit && value.Equals(other.value);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is PlotLength && Equals((PlotLength) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((int) unit*397) ^ value.GetHashCode();
+            }
+        }
     }
 }

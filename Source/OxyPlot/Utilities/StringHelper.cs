@@ -37,6 +37,7 @@ namespace OxyPlot
         /// Note that this formatting is using reflection and does not have the same performance as string.Format.</remarks>
         public static string Format(IFormatProvider provider, string formatString, object item, params object[] values)
         {
+#if !DOT42
             // Replace items on the format {Property[:Formatstring]}
             var s = FormattingExpression.Replace(
                 formatString,
@@ -64,6 +65,10 @@ namespace OxyPlot
             // Also apply the standard formatting
             s = string.Format(provider, s, values);
             return s;
+#else
+            return string.Format(provider, formatString, values);
+#endif
+
         }
     }
 }

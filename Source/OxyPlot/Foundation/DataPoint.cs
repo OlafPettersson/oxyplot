@@ -7,6 +7,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace OxyPlot
 {
     using System.Diagnostics.CodeAnalysis;
@@ -27,14 +29,22 @@ namespace OxyPlot
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter",
             Justification = "Reviewed. Suppression is OK here.")]
+#if !DOT42
         internal double x;
+#else   // performance critical to use immutable structs in Dot42
+        internal readonly double x;
+#endif
 
         /// <summary>
         /// The y-coordinate.
         /// </summary>
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1307:AccessibleFieldsMustBeginWithUpperCaseLetter",
             Justification = "Reviewed. Suppression is OK here.")]
+#if !DOT42
         internal double y;
+#else   // performance critical to use immutable structs in Dot42
+        internal readonly double y;
+#endif
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataPoint" /> struct.
@@ -57,11 +67,12 @@ namespace OxyPlot
             {
                 return this.x;
             }
-
+#if !DOT42
             set
             {
                 this.x = value;
             }
+#endif
         }
 
         /// <summary>
@@ -74,11 +85,12 @@ namespace OxyPlot
             {
                 return this.y;
             }
-
+#if !DOT42
             set
             {
                 this.y = value;
             }
+#endif
         }
 
         /// <summary>
@@ -113,6 +125,25 @@ namespace OxyPlot
             // ReSharper restore CompareOfFloatsByEqualityOperator
             // ReSharper restore EqualExpressionComparison
 #pragma warning restore 1718
+        }
+
+        public bool Equals(DataPoint other)
+        {
+            return x.Equals(other.x) && y.Equals(other.y);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is DataPoint && Equals((DataPoint) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (x.GetHashCode()*397) ^ y.GetHashCode();
+            }
         }
     }
 }
